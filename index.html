@@ -940,9 +940,6 @@
         <header>
             <div style="display:flex;align-items:center">
                 <div class="logo">habit<span>.</span></div>
-                <div class="db-badge">
-                    <div class="db-dot"></div>saved locally
-                </div>
             </div>
             <div class="header-right">
                 <div class="month-nav">
@@ -961,7 +958,7 @@
                         <div>
                             <div class="stat-label">Today's Progress</div>
                             <div class="stat-value" id="todayVal">—</div>
-                            <div class="stat-sub">habits completed</div>
+                            <div class="stat-sub" id="todaySub">habits completed</div>
                         </div>
                         <div class="ring-wrap">
                             <svg class="ring-svg" viewBox="0 0 48 48" width="48" height="48">
@@ -971,6 +968,14 @@
                             </svg>
                             <div class="ring-text" id="ringPct">0%</div>
                         </div>
+                    </div>
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Most Productive</div>
+                            <div class="stat-value" id="prodDay">—</div>
+                            <div class="stat-sub">best day of week</div>
+                        </div>
+                        <div class="stat-icon">📈</div>
                     </div>
                     <div class="stat-card">
                         <div>
@@ -1170,9 +1175,22 @@
             const pct = tot ? Math.round(done / tot * 100) : 0;
 
             document.getElementById('todayVal').textContent = `${done}/${tot}`;
+            document.getElementById('todaySub').textContent = (tot - done) > 0 ? `${tot - done} left to complete` : 'all done today!';
             document.getElementById('ringPct').textContent = pct + '%';
             document.getElementById('bestStreak').textContent = bestStreak();
             document.getElementById('ringFill').style.strokeDashoffset = 125.66 - 125.66 * pct / 100;
+
+            // Most Productive Day
+            const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+            Object.keys(completions).forEach(k => {
+                const [y, m, d] = k.split('-').map(Number);
+                const day = new Date(y, m - 1, d).getDay();
+                dayCounts[day] += completions[k].length;
+            });
+            const maxVal = Math.max(...dayCounts);
+            const bestDayIdx = maxVal > 0 ? dayCounts.indexOf(maxVal) : -1;
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            document.getElementById('prodDay').textContent = bestDayIdx !== -1 ? days[bestDayIdx] : '—';
 
             let mc = 0;
             for (let d = 1; d <= daysInMonth(viewYear, viewMonth); d++) {
