@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# env — NEVER commit real keys
+.env.local
+.env.*.local
+
+# PWA generated
+public/sw.js
+public/workbox-*.js
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# vercel
+.vercel

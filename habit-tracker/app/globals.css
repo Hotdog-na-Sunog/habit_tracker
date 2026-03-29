@@ -1,0 +1,47 @@
+/* app/globals.css */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #F7F6F2;
+  --surface:      #FFFFFF;
+  --surface2:     #F2F1ED;
+  --text:         #1C1C1A;
+  --text2:        #8A8880;
+  --text3:        #B8B6B0;
+  --accent:       #5B7A5F;
+  --accent-light: #EBF0EB;
+  --accent-mid:   #A8C2AB;
+  --border:       #E8E7E2;
+  --shadow:       0 2px 16px rgba(0,0,0,.06);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,.10);
+  --radius:       16px;
+  --radius-sm:    10px;
+  --safe-top:     env(safe-area-inset-top, 0px);
+  --safe-bottom:  env(safe-area-inset-bottom, 0px);
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lexend', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

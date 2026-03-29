@@ -1,0 +1,12 @@
+/* app/page.module.css */
+.splash {
+  min-height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+}
+.splashLogo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300;
+  animation: fadeUp .4s ease;
+}
+.splashLogo span { color: var(--accent); }

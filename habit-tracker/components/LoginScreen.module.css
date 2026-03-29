@@ -1,0 +1,67 @@
+/* components/LoginScreen.module.css */
+.wrap {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.logo span { color: var(--accent); }
+
+.sub {
+  color: var(--text2);
+  font-size: 14px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  background: var(--surface);
+  font-family: 'Lexend', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+}
+
+.googleBtn:hover {
+  background: var(--surface2);
+  box-shadow: var(--shadow);
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 11.5px;
+  color: var(--text3);
+  line-height: 1.6;
+}
