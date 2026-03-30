@@ -193,6 +193,19 @@
   font-size: 10.5px; color: var(--text2);
   display: flex; align-items: center; gap: 3px; margin-top: 1px;
 }
+.habitGoalProgress {
+  margin-top: 6px;
+}
+.goalProgressText {
+  font-size: 10px; font-weight: 600; color: var(--text2);
+  margin-bottom: 3px; display: flex; justify-content: space-between;
+}
+.goalProgressBarBg {
+  height: 3px; background: var(--surface2); border-radius: 10px; overflow: hidden;
+}
+.goalProgressBarFill {
+  height: 100%; border-radius: 10px; transition: width .4s ease;
+}
 .habitActions { display: flex; gap: 4px; opacity: 0; transition: opacity .2s; }
 .habitItem:hover .habitActions { opacity: 1; }
 .actionBtn {
@@ -344,6 +357,22 @@
   transition: background .2s, border-color .2s;
   flex-shrink: 0;
 }
+.subtaskList {
+  margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.subtaskItem {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-radius: 8px; background: var(--surface2);
+  font-size: 13px; cursor: pointer; transition: background .2s;
+}
+.subtaskItem:hover { background: var(--border); }
+.subtaskItem.subtaskDone { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+.subtaskCheck {
+  width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center; font-size: 10px;
+}
+.subtaskDone .subtaskCheck { background: var(--accent); border-color: var(--accent); color: white; }
 .modalEmpty { text-align: center; padding: 20px; color: var(--text3); font-size: 13px; }
 
 /* ── ADD MODAL ── */
@@ -410,6 +439,19 @@
   cursor: pointer; transition: opacity .2s;
 }
 .btnSave:hover { opacity: .88; }
+
+.goalToggle {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  margin-bottom: 15px; user-select: none;
+}
+.goalToggle input { cursor: pointer; width: 16px; height: 16px; accent-color: var(--accent); }
+.goalToggle span { font-size: 13px; font-weight: 500; color: var(--text); }
+.autoInput {
+  background: var(--surface2); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 12px 14px; font-size: 15px; outline: none;
+  width: 100%;
+}
+.autoInput:focus { border-color: var(--accent); background: white; }
 
 /* ── TOAST ── */
 .toast {
